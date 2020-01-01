@@ -5,7 +5,7 @@
             {% if user.is_authenticated %}
             <!-- profile link -->
                 <li {% if 'profile' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{% url 'profile' %}">
                         <i class="fas fa-user"></i> profile</a>
                 </li>
                 <!-- logout link -->
@@ -18,7 +18,7 @@
                 <!-- register link active path -->
                 <li {% if 'register' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
                     <!-- register link -->
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{% url 'register' %}">
                         <i class="fas fa-user-plus"></i> Register</a>
                 </li>
                 <!-- login link active path -->
