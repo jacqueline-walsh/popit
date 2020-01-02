@@ -1,0 +1,46 @@
+/*
+
+Dark Blue = #25436e;
+Med Blue = #4e8cb3;
+light Blue = #a8dadc
+light = #f1faee
+red = #e63946
+
+*/
+/* Navigation */
+@import url('https://fonts.googleapis.com/css?family=Frijole|Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar, .dropdown-menu {
+    background-color: #2f7dae;
+    color: #f1faee;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 2px rgb(67, 67, 67);
+    padding: 0;
+  }
+
+  .brand-title {
+    color: #e63946;
+    text-shadow: 1px 1px 1px #f1faee;
+    font-family: 'Frijole', cursive;
+    transform: rotate(-6deg);
+    font-size: 2.3em;
+  }
+  
+  a.nav-link {
+    font-family: 'Open Sans', serif;
+  }
+
+  .btn-primary {
+      background-color: #4174bd;
+  }
+
+  .btn-primary:hover {
+    background-color: #4c7cbe;
+    box-shadow: 2px 2px 2px #1d3557;
+    font-weight: bold;
+}
