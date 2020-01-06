@@ -15,6 +15,11 @@
                     <a class="nav-link" href="{% url 'index' %}">
                         <i class="fas fa-home"></i> Home</a>
                 </li>
+                <li {% if 'products' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                    <!-- home link -->
+                    <a class="nav-link" href="{% url 'products' %}">
+                        <i class="fas fa-store"></i> Store</a>
+                </li>                
                 <!-- links only available when logged in -->
                 {% if user.is_authenticated %}
                 <!-- profile link -->
