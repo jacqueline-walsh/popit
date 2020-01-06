@@ -1,7 +1,5 @@
-from django.db import models
 from datetime import datetime
-
-# Create your models here.
+from django.db import models
 
 
 class Product(models.Model):
@@ -14,3 +12,4 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+

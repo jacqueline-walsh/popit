@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product
+from products.models import Product
 
 # Register your models here.
 
@@ -9,4 +9,4 @@ class ProductAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name')
     list_editable = ['price', 'stock']
 
-admin.site.register(Product)
+    admin.site.register(Product)
