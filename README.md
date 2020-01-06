@@ -1,5 +1,6 @@
 # PopIt - Ecommerce Site for collectables
 
+[![Build Status](https://travis-ci.org/jacqueline-walsh/popit.svg?branch=master)](https://travis-ci.org/jacqueline-walsh/popit)
 
 ## UX
  
