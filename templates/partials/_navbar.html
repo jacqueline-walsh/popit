@@ -2,45 +2,46 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{% url 'index' %}">
-        <div class="brand-title text-center">PopIt!</div></a>
+            <div class="brand-title text-center">PopIt!</div>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav ml-auto">
                 <!-- Home link active path -->
-                <li {% if '/' == request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                <li {% if '/'==r equest.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
                     <!-- home link -->
                     <a class="nav-link" href="{% url 'index' %}">
                         <i class="fas fa-home"></i> Home</a>
                 </li>
                 <!-- links only available when logged in -->
                 {% if user.is_authenticated %}
-                    <!-- profile link -->
-                    <li {% if 'profile' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
-                        <a class="nav-link" href="{% url 'profile' %}">
-                            <i class="fas fa-user"></i> profile</a>
-                    </li>
-                    <!-- logout link -->
-                    <li class="nav-item mr-3">
-                        <a class="nav-link" href="{% url 'logout' %}">
-                            <i class="fas fa-sign-out-alt"></i> logout</a>
-                    </li>
+                <!-- profile link -->
+                <li {% if 'profile' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                    <a class="nav-link" href="{% url 'profile' %}">
+                        <i class="fas fa-user"></i> profile</a>
+                </li>
+                <!-- logout link -->
+                <li class="nav-item mr-3">
+                    <a class="nav-link" href="{% url 'logout' %}">
+                        <i class="fas fa-sign-out-alt"></i> logout</a>
+                </li>
                 <!-- if user is not logged in -->
                 {% else %}
                 <!-- register link active path -->
-                    <li {% if 'register' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
-                        <!-- register link -->
-                        <a class="nav-link" href="{% url 'register' %}">
-                            <i class="fas fa-user-plus"></i> Register</a>
-                    </li>
-                    <!-- login link active path -->
-                    <li {% if 'login' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
-                        <!-- login link -->
-                        <a class="nav-link" href="{% url 'login' %}">
-                            <i class="fas fa-sign-in-alt"></i>
-                            Login</a>
-                    </li>
+                <li {% if 'register' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                    <!-- register link -->
+                    <a class="nav-link" href="{% url 'register' %}">
+                        <i class="fas fa-user-plus"></i> Register</a>
+                </li>
+                <!-- login link active path -->
+                <li {% if 'login' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                    <!-- login link -->
+                    <a class="nav-link" href="{% url 'login' %}">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login</a>
+                </li>
                 {% endif %}
             </ul>
         </div>

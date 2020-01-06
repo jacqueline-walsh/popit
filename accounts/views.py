@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm
 
 # log in page for user
+
+
 def login(request):
     if request.user.is_authenticated:
         return redirect(reverse('index'))
@@ -22,11 +24,12 @@ def login(request):
                 return redirect(reverse('index'))
 
             else:
-                login_form.add_error(None, "Your username or password is incorrect!")
+                login_form.add_error(
+                    None, "Your username or password is incorrect!")
     else:
         login_form = UserLoginForm()
 
-    context =   {"login_form" : login_form}
+    context = {"login_form": login_form}
     return render(request, 'accounts/login.html', context)
 
 # logout page for user
@@ -41,7 +44,7 @@ def logout(request):
 def register(request):
     if request.user.is_authenticated:
         return redirect(reverse('index'))
-    
+
     if request.method == "POST":
         registration_form = UserRegistrationForm(request.POST)
 
@@ -49,23 +52,25 @@ def register(request):
             registration_form.save()
 
             user = auth.authenticate(username=request.POST['username'],
-                                    password=request.POST['password1']) 
+                                     password=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered!")
                 return redirect(reverse('login'))
             else:
-                message.error(request, "Unable to register your account at this time")
+                message.error(
+                    request, "Unable to register your account at this time")
     else:
-        registration_form = UserRegistrationForm() 
+        registration_form = UserRegistrationForm()
 
     context = {"registration_form": registration_form}
 
     return render(request, 'accounts/registration.html', context)
 
 # User Profile Page
+
+
 def profile(request):
     user = User.objects.get(email=request.user.email)
     context = {'user': user}
     return render(request, 'accounts/profile.html', context)
-
