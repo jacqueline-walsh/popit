@@ -80,3 +80,12 @@ footer {
 img.product {
     width: 100%;
 }
+
+.card-group {
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}

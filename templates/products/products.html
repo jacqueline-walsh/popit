@@ -1,23 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="row row-flex mt-5">
+    <div class="row row-flex mt-5 mb-5">
         {% for product in products %}
-            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-
+            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default d-flex align-items-stretch mb-3">
                 <div class="card text-center">
-                    <img class="product" src="{{ product.image.url }}" alt="{{ product.name }}">
-                    <h3>{{ product.name }}</h3>
-                    <p>€{{ product.price }}</p>
-
-                    <form action="#" method="POST">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input type="number" name="quantity" id="" min="1" max="999" class="form-control" placeholder="Quantity">
-                            <span class="input-group-btn">
-                                <button class="btn btn-success" type="submit">Add</button>
-                            </span>
+                    <div class="card-body">
+                        <a href="{% url 'product' product.id %}" ><img class="product" src="{{ product.image.url }}" alt="{{ product.name }}"></a>
+                        <h5>{{ product.name }}</h5>
+                        <p>€{{ product.price }}</p>
+                        <div class="card-footer text-center">
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                <div class="input-group ">
+                                    <input type="number" name="quantity" id="" min="1" max="999" class="form-control" placeholder="Quantity">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="submit">Add</button>
+                                    </span>
+                                </div>
+                            </form>
+                            <div class="text-center mt-3">
+                                <a href="{% url 'product' product.id %}" ><button class="btn btn-primary btn-sm">More Info</button></a>
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         {% endfor %}
