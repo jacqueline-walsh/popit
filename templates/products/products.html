@@ -9,10 +9,10 @@
                         <h5>{{ product.name }}</h5>
                         <p>€{{ product.price }}</p>
                         <div class="card-footer text-center">
-                            <form action="#" method="POST">
+                            <form method="post" action="{% url 'add_cart' product.id %}">
                                 {% csrf_token %}
-                                <div class="input-group ">
-                                    <input type="number" name="quantity" id="" min="1" max="999" class="form-control" placeholder="Quantity">
+                                <div class="input-group">
+                                    <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
                                     <span class="input-group-btn">
                                         <button class="btn btn-success" type="submit">Add</button>
                                     </span>
