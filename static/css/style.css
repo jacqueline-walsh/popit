@@ -56,6 +56,17 @@ body {
     background-color: #c67605;
   }
 
+  .product {
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+  }
+
+  
+
   .btn-primary {
       background-color: #4174bd;
   }
