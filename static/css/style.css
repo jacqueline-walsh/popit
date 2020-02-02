@@ -45,8 +45,25 @@ body {
     font-family: 'Open Sans', serif;
   }
 
+  /* badge for shopping cart */
+  .badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 9px;
+  }
+
+  .label-warning[href], .badge-warning[href] {
+    background-color: #c67605;
+  }
+
   .btn-primary {
       background-color: #4174bd;
+  }
+
+  .btn-success:hover {
+    background-color: rgb(82, 173, 102);
+    box-shadow: 2px 2px 2px #1d3557;
+    font-weight: bold;    
   }
 
   .btn-primary:hover {
