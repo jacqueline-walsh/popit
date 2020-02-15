@@ -65,8 +65,6 @@ body {
       margin: 0 auto;
   }
 
-  
-
   .btn-primary {
       background-color: #4174bd;
   }
@@ -106,10 +104,48 @@ footer {
 /********************************************** Products Page ***************************************************/
 
 .card-group {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.row.row-flex {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.panel-default {
+  border-color: transparent;
+  padding: 0 10px;
+}
+
+.panel-body {
+  height: 100%;
+  border: 1px solid #ddd;
+}
+
+.product-description {
+  min-height: 40px;
+}
+
+/********************************************** Search Bar ***************************************************/
+
+.search-bar {
+  border: 1px solid #666; 
+  border-radius: 5px;
+  padding: 30px;
+  background-color: rgb(221, 221, 221);
+  margin: 20px 5px;
+  box-shadow: 3px 3px 3px #666;
+}
+
+/********************************************** Single Products Page ***************************************************/
+
+.product-large {
+  width: 80%;
+  box-shadow: 2px 2px 2px #666;
 }

@@ -18,15 +18,39 @@
     <!-- NavBar -->
     {% include 'partials/_navbar.html' %}
     <div class="container">
+        <!-- messages -->
         {% if messages %}
         <div class="alert alert-success" role="alert">
             {% for message in messages %} {{ message }} {% endfor %}
         </div>
-        {% endif %} 
-        <div class="display">
-            <form action="{% url 'search' %}" method="GET">
-                <input type="text" name="q">
-                <button type="submit">Search</button>
+        {% endif %}
+        <!-- search bar -->
+        <div class="search-bar">
+            <form action="{% url 'search' %}" method="GET" class="form-group"> 
+            <div class="row">
+                <!-- search by price -->
+                <div class="col-md-4">
+                    <select name="price" class="form-control">
+                    <option name="price" selected="true" disabled="disabled"> By Price </option>
+                        <option value="ascending"> price low-high</option>   
+                        <option value="descending"> price high-low</option>   
+                    </select>
+                </div>            
+                <!-- search by category -->
+                <div class="col-md-4">
+                    <select name="category" class="form-control">
+                    <option name="category" selected="true" disabled="disabled"> By Category </option>
+                    {% for product in products_all %}
+                        <option value="{{ product.category.name }}">{{ product.category.name }}</option>   
+                    {% endfor %}
+                    </select>
+                </div>
+                <!-- search by title -->
+                <div class="col-md-4">
+                    <input type="text" name="q" placeholder=" By Title" class="form-control">
+                </div>
+                <button type="submit" class="btn-primary btn-block mt-5 pt-1 pb-1">Search</button>        
+            </div>
             </form>
         </div>
         {% block content %} {% endblock content %}
