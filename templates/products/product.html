@@ -25,7 +25,15 @@
                     </span>
                 </div>
             </form>
-        {% endif %}       
+        {% endif %}      
+        <h5 class="mt-3">Rate Me</h5>
+        <div class="rating mt-2">
+            <button type="button" id="thumbsUp" class="btn thumbs btn-success mr-2" 
+            data-loading-text=" ... "><i class="fas fa-thumbs-up"></i> <span id="up"> 1</span></button>
+
+
+            <button type="button" id="thumbsDown" class="btn thumbs btn-danger" data-loading-text=" ... "><i class="fas fa-thumbs-down"></i> <span id="down"> 4</span></button>
+        </div>
     </div>
 </div>
 {% endblock %}

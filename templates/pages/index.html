@@ -1,3 +1,36 @@
-{% extends 'base.html' %} {% block title %} | Welcome {% endblock %} {% block content %}
+{% extends 'base.html' %} {% block title %} | Welcome {% endblock %} 
+{% block content %}
 <!-- bootstrap slider -->
-{% include 'partials/_home_slider.html' %} {% endblock content %}
+{% include 'partials/_home_slider.html' %} 
+
+<h2 class="text-center feature">Featured Items</h2>
+<div class="row row-flex">
+    {% for product in products %}
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default mb-4">
+            <div class="panel-body p-3">
+                <div class="product" ><a href="{% url 'product' product.id %}" ><img class="product" src="{{ product.image.url }}" alt="{{ product.name }}"></a></div>
+                <hr/>
+                <h3 class="text-center mb-2">{{ product.name }}</h3>
+                <p class="text-center">Price €{{ product.price }}</p>
+                {% if product.stock < 3 and product.stock > 0 %}
+                    <p class="text-center" style="color:red; font-weight:bold;">Only {{ product.stock }} left in stock!</p>
+                {% elif product.stock == 0 %}
+                    <p class="text-center" style="color:red; font-weight:bold;">This item is currently out of stock!</p>
+                {% endif%}
+                {% if product.stock > 0 %}
+                    <form method="post" action="{% url 'add_cart' product.id %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="submit">Add</button>
+                            </span>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
